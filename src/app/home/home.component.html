@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/oasys.png" alt="" class="d-inline-block align-text-top">
+        </a>
+    </div>
+</nav>
+
+<div class="container-fluid" style="background-color: violet;">
+    <div class="container">
+        <div class="card">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+               
+                <h1 class="login">Log in</h1>
+                <div class="inputBox">
+                    <input type="text" formControlName="username" required>
+                    <span class="user">Usermail</span>
+                    <div *ngIf="loginForm.get('username')?.invalid && loginForm.get('username')?.touched" class="error">
+                        <small *ngIf="loginForm.get('username')?.errors?.['required']">Usermail is required</small>
+                        <small *ngIf="loginForm.get('username')?.errors?.['email']">Invalid usermail format</small>
+                    </div>
+                </div>
+
+                <div class="inputBox">
+                    <input type="password" formControlName="password" required>
+                    <span>Password</span>
+                    <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="error">
+                        <small *ngIf="loginForm.get('password')?.errors?.['required']">Password is required</small>
+                        <small *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</small>
+                    </div>
+                </div>
+
+                <div class="button-container">
+                    <button class="enter" type="submit">Enter</button>
+                </div>            </form>
+        </div>
+    </div>
+</div>

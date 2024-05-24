@@ -1,0 +1,86 @@
+
+<div class="container">
+   
+    <form action="" [formGroup]="addEmployee">
+      <div class="dropdown">
+        <label for="">Department : </label>
+        <button class="btn btn-secondary dropdown-toggle ms-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Department
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li *ngFor="let dept of allEmployeeDetails">
+            <a class="dropdown-item">{{ dept.departmentName }}</a>
+          </li>
+        </ul>
+        
+      </div>
+<div class="mb-3 mt-3">
+    <label for="exampleFormControlInput1" class="form-label">EmployeeCode :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="EmployeeCode" formControlName="EmployeeCode">
+  </div>
+  <div *ngIf="addEmployee.get('EmployeeCode')?.hasError('required') && addEmployee.get('EmployeeCode')?.touched"
+      class="text-danger">
+      Employee Code is Required
+    </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">EmployeeName : </label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="EmployeeName" formControlName="EmployeeName">
+  </div>
+  <div *ngIf="addEmployee.get('EmployeeName')?.hasError('required') && addEmployee.get('EmployeeName')?.touched"
+      class="text-danger">
+      Employee name is required
+    </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Photo :</label>
+    <input type="file" class="form-control" id="exampleFormControlInput1" name="Photo" (change)="onFileChange($event)">
+
+  </div>
+  <div *ngIf="addEmployee.get('Photo')?.hasError('required') && addEmployee.get('Photo')?.touched"
+  class="text-danger">
+  Employee photo is required
+</div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">ContactNumber1 : </label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="ContactNumber1" formControlName="ContactNumber1">
+  </div>
+  <div *ngIf="addEmployee.get('ContactNumber1')?.hasError('required') && addEmployee.get('ContactNumber1')?.touched"
+      class="text-danger">
+      Contact Number Is Required
+    </div>
+    <div *ngIf="addEmployee.get('ContactNumber1')?.hasError('pattern') && addEmployee.get('ContactNumber1')?.touched"
+      class="text-danger">
+      Enter a valid mobile number
+    </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">ContactNumber2 :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="ContactNumber2" formControlName="ContactNumber2">
+  </div>
+  <div *ngIf="addEmployee.get('ContactNumber2')?.hasError('required') && addEmployee.get('ContactNumber2')?.touched"
+  class="text-danger">
+  Contact Number Is Required
+</div>
+<div *ngIf="addEmployee.get('ContactNumber2')?.hasError('pattern') && addEmployee.get('ContactNumber2')?.touched"
+  class="text-danger">
+  Enter a valid mobile number
+</div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Email : </label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" name="Email" formControlName="Email">
+  </div>
+  <div *ngIf="addEmployee.get('Email')?.hasError('required') && addEmployee.get('Email')?.touched" class="text-danger">
+    Email is Required
+  </div>
+  <div *ngIf="addEmployee.get('Email')?.hasError('email') && addEmployee.get('Email')?.touched" class="text-danger">
+    Enter a valid Email
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">AddressforCommunication :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="AddressforCommunication" formControlName="AddressforCommunication">
+  </div>
+  <div *ngIf="addEmployee.get('AddressforCommunication')?.hasError('required') && addEmployee.get('AddressforCommunication')?.touched" class="text-danger">
+    Address Is Required
+  </div>
+  <button type="button" class="btn btn-success" (click)="post()">Submit</button>
+  <button type="button" class="btn btn-danger ms-5" (click)="gotoViewEmployee()">Cancel</button>
+</form>
+</div>

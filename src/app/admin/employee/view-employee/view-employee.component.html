@@ -1,0 +1,47 @@
+
+
+
+
+<button type="button" class="btn btn-danger ms-5 mt-5" (click)="gotoEmployee()">
+  Back
+  </button>
+<button type="button" class="btn btn-success ms-5 mt-5" (click)="gotoAddEmployee()">
+Add Employee
+</button>
+
+
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">EmployeeCode</th>
+            <th scope="col">EmployeeName</th>
+            <th scope="col">Photo</th>
+            <th scope="col">ContactNumber1</th>
+            <th scope="col">ContactNumber2</th>
+            <th scope="col">Email</th>
+            <th scope="col">AddressforCommunication</th>
+            <th scope="col">Option</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of allEmployees">
+            <td>{{a.id}}</td>
+            <td>{{a.EmployeeCode}}</td>
+            <td>{{a.EmployeeName}}</td>
+            <td> <img [src]="getImageSrc(a.id)" (load)="onImageLoad()"  alt="Product Image" height="100px" width="100px"></td>
+            <td>{{a.ContactNumber1}}</td>
+            <td>{{a.ContactNumber2}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.AddressforCommunication}}</td>
+            <td>
+                <button type="button" class="btn btn-primary"(click)="updateEmployeeById(a.id)">Update</button>
+                <button type="button" class="btn btn-danger ms-3"(click)="deleteEmployee(a.id)">Delete</button>
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+</div>

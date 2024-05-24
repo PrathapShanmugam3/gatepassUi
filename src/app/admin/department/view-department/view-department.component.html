@@ -1,0 +1,37 @@
+
+
+
+
+<button type="button" class="btn btn-danger ms-5 mt-5" (click)="gotoDepartment()">
+  Back
+  </button>
+<button type="button" class="btn btn-success ms-5 mt-5" (click)="gotoAddDepartment()">
+Add Department
+</button>
+
+
+
+<div class="container">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">DEPARTMENT CODE</th>
+        <th scope="col">DEPARTMENT NAME</th>
+        <th scope="col">OPTION</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let d of viewAllDept">
+        <th scope="row">{{d.id}}</th>
+        <td>{{d.departmentCode}}</td>
+        <td>{{d.departmentName}}</td>
+        <td>
+            <button type="button" class="btn btn-primary" (click)="gotoGetDeptById(d.id)">Update</button>
+            <button type="button" class="btn btn-danger ms-3"(click)="deleteDept(d.id)">Delete</button>
+        </td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

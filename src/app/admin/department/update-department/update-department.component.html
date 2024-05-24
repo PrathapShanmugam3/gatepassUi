@@ -1,0 +1,15 @@
+<p>update-department works!</p>
+<div class="container">
+    <form action="" [formGroup]="updateDepartment">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Department Code :</label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" name="departmentCode" formControlName="departmentCode">
+          </div>
+          <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Department : </label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" name="department" formControlName="departmentName">
+          </div>
+          <button type="button" class="btn btn-success" (click)="updateDepartmentSubmit()">Submit</button>
+          <button type="button" class="btn btn-danger ms-5" (click)="gotoViewDepartment()">Cancel</button>
+        </form>
+</div>

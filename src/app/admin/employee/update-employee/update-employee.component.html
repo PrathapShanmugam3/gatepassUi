@@ -1,0 +1,42 @@
+<p>update-employee works!</p>
+<div class="container">
+
+<div class="container">
+    <p>add-department works!</p>
+    <form action="" [formGroup]="updateEmployee">
+<div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">EmployeeCode :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="EmployeeCode" formControlName="EmployeeCode">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">EmployeeName : </label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="EmployeeName" formControlName="EmployeeName">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Photo :</label>
+    <input type="file" class="form-control" id="exampleFormControlInput1" name="Photo" (change)="onFileChange($event)">
+    <img [src]="getImageSrc(id)" (load)="onImageLoad()"  alt="Product Image" height="100px" width="100px">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">ContactNumber1 : </label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="ContactNumber1" formControlName="ContactNumber1">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">ContactNumber2 :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="ContactNumber2" formControlName="ContactNumber2">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Email : </label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" name="Email" formControlName="Email">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">AddressforCommunication :</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" name="AddressforCommunication" formControlName="AddressforCommunication">
+  </div>
+ 
+  <button type="button" class="btn btn-success"(click)="updateEmployeeById()" >Submit</button>
+  <button type="button" class="btn btn-danger ms-5" (click)="gotoViewEmployee()">Cancel</button>
+</form>
+</div>
+
+</div>
