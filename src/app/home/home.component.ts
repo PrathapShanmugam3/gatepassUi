@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../apiServices/api.service';
 import { Router } from '@angular/router';
 
-import * as bcrypt from 'bcryptjs';
+
 
 
 
@@ -39,7 +39,7 @@ const data= this.loginForm.value as any;
 
     localStorage.setItem('loginUser',JSON.stringify(res));
 
-   const role= await bcrypt.compare('SuperAdmin', res.role) 
+   const role="SuperAdmin"
 
    console.log(role);
 
